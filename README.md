@@ -1,28 +1,15 @@
+# SVELTEA — Sitio estático
 
-Sveltea - Sitio estático para GitHub Pages
------------------------------------------
-
-Contenido del paquete:
+Sitio de ejemplo para SVELTEA (estilo elegante, oscuro, tonos dorado/rosado).
+Archivos incluídos:
 - index.html
-- product.html
+- styles.css
+- product.js
+- app.js
+- product-escencia.html, product-renova.html, product-silueta.html, product-define.html
 - checkout.html
-- css/styles.css
-- js/app.js
-- assets/logo.jpg
-- products.json
 
-Instrucciones de despliegue en GitHub Pages:
-1. Crea un repositorio nuevo en GitHub (por ejemplo: sveltea-site).
-2. Sube todos los archivos del ZIP al branch `main` (o `gh-pages` si prefieres).
-3. En Settings -> Pages, selecciona el branch `main` y la carpeta `/ (root)` y guarda.
-4. GitHub Pages servirá tu sitio en https://<tu-usuario>.github.io/<repo>/
+Coloca las imágenes en la raíz del repo con los nombres:
+Escencia.jpeg, Escencia1.jpeg, Renova.jpeg, Renova1.jpeg, Silueta.jpeg, Silueta1.jpeg, Define.jpeg, Define1.jpeg, Urea.jpeg, logo.jpg
 
-Nota sobre pagos:
-Este sitio es estático. Para aceptar pagos reales necesitarás integrar un proveedor (Stripe, PayPal, Conekta, etc.).
-Las llamadas de pago en este ejemplo son simuladas: el flujo de "pago" borra el carrito y muestra un mensaje.
-Para producción, sigue la documentación oficial del proveedor de pago y asegura TLS/HTTPS y manejo seguro de datos.
-
-Personalización:
-- Reemplaza assets/logo.jpg por el logo final en alta resolución.
-- Actualiza la lista de productos en js/app.js o conecta un CMS/archivo JSON.
-- Añade etiquetas meta y SEO según necesites.
+Sube todo a GitHub y activa GitHub Pages en la rama `main` y root (/).

@@ -1,52 +1,250 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SVELTEA · La esencia del poder femenino</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVELTEA – Belleza Áurea</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+
+    /* ================= HEADER ================= */
+    header {
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 2.5rem;
+      letter-spacing: 5px;
+      color: #ffb7df;
+      text-shadow: 0 0 14px rgba(255, 170, 220, 0.55);
+    }
+
+    nav a {
+      color: #ffe7f6;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: white;
+      text-shadow: 0 0 12px rgba(255, 200, 240, 0.55);
+    }
+
+
+    /* ================= HERO TEXT ================= */
+    .hero {
+      margin-top: 140px;
+      text-align: center;
+      color: #ffd8f0;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      letter-spacing: 4px;
+      font-weight: 300;
+      margin-bottom: 10px;
+      text-shadow: 0 0 18px rgba(255, 190, 230, 0.45);
+    }
+
+    .hero h2 {
+      font-size: 1.7rem;
+      margin-bottom: 45px;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    /* título “Línea Áurea” */
+    .aurea-block {
+      margin-top: 40px;
+    }
+
+    .aurea-block h3 {
+      font-size: 2.4rem;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+      color: #ffe1f6;
+      text-shadow: 0 0 15px rgba(255, 180, 235, 0.45);
+    }
+
+    .aurea-block p {
+      width: 70%;
+      margin: auto;
+      font-size: 1.2rem;
+      color: #ffd8f0;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* Nuevo párrafo filosófico */
+    .philosophy {
+      width: 75%;
+      margin: 40px auto 0 auto;
+      font-size: 1.25rem;
+      line-height: 1.65;
+      color: #ffe8f7;
+      padding: 25px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      text-shadow: 0 0 12px rgba(255,150,210,0.25);
+    }
+
+
+    /* =============== SECCIÓN NUESTROS PRODUCTOS =============== */
+    .products {
+      padding: 70px 0 40px 0;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 2.8rem;
+      color: #ffd8f0;
+      text-shadow: 0 0 15px rgba(255,160,220,0.45);
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      gap: 45px;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      width: 260px;
+      padding: 22px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 0 22px rgba(255, 207, 234, 0.30);
+    }
+
+    .product-card h3 {
+      color: #ffe0f5;
+      margin-top: 15px;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    .product-card button {
+      margin-top: 12px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 12px;
+      background: #ffb7df;
+      color: #000;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+
+    .product-card button:hover {
+      transform: scale(1.08);
+      background: #ffd0ea;
+    }
+
+  </style>
 </head>
+
 <body>
-  <header class="header">
-    <img src="logo.jpg" alt="SVELTEA Logo" class="logo" />
-    <nav>
-      <a href="#productos">Nuestros Productos</a>
-<a href="linea-aurea.html" class="nav-link">Línea Áurea</a>
-      <a href="#pagos">Métodos de Pago</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>SVELTEA</h1>
-    <p>La esencia del poder femenino.</p>
-  </section>
-  <section id="urea" class="urea">
-    <h2>Línea Áurea</h2>
-    <p>En el universo, existe una medida perfecta…<br>
-    <strong>SVELTEA · LÍNEA ÁUREA:</strong> que despierta la proporción dorada en ti.</p>
-    <img src="Urea.jpeg" alt="Línea Áurea" class="urea-img">
-  </section>
-  
-  <section id="productos" class="productos">
-    <h2>Nuestros Productos</h2>
-    <div id="productsGrid" class="grid"></div>
-  </section>
+<header>
+  <div class="logo">SVELTEA</div>
+  <nav>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="linea-aurea.html">Línea Áurea</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
-  <section id="pagos" class="pagos">
-    <h2>Métodos de Pago</h2>
-    <div class="payments">
-      <img src="visa.png" alt="Visa">
-      <img src="mastercard.png" alt="MasterCard">
-      <img src="paypal.png" alt="PayPal">
-      <img src="oxxo.png" alt="OXXO">
+
+<!-- ========== HERO / PRESENTACIÓN ========== -->
+<div class="hero">
+  <h1>SVELTEA</h1>
+  <h2>La esencia del poder femenino.</h2>
+
+  <div class="aurea-block">
+    <h3>Línea Áurea</h3>
+    <p>
+      En el universo existe una medida perfecta…  
+      SVELTEA · LÍNEA ÁUREA: que despierta la proporción dorada en ti.
+    </p>
+  </div>
+
+  <div class="philosophy">
+    SVELTEA representa la unión entre ciencia, belleza y energía femenina.  
+    Una marca nacida para realzar la esencia de cada mujer, alineando cuerpo, mente y espíritu
+    con la proporción áurea, símbolo universal de perfección, la alquimia, el equilibrio y la armonía.
+    <br><br>
+    Cada fórmula ha sido creada con la intención de despertar la confianza interior y reflejarla en la silueta:
+    un equilibrio entre magnetismo, sutileza y poder.
+  </div>
+</div>
+
+
+<!-- ========== SECCIÓN NUESTROS PRODUCTOS ========== -->
+<section class="products">
+  <h2>Nuestros Productos</h2>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+      <img src="Escencia1.jpeg" alt="Esencia">
+      <h3>Esencia – $1000</h3>
+      <button onclick="location.href='product.html?id=p01'">Ver</button>
+      <button>Agregar al carrito</button>
     </div>
-    <p>Paga de forma segura con tu método favorito.</p>
-  </section>
 
-  <footer>
-    <p>© 2025 SVELTEA · La esencia del poder femenino</p>
-  </footer>
+    <div class="product-card">
+      <img src="Renova1.jpeg" alt="Renova">
+      <h3>Renova – $1200</h3>
+      <button onclick="location.href='product.html?id=p02'">Ver</button>
+      <button>Agregar al carrito</button>
+    </div>
+
+    <div class="product-card">
+      <img src="Silueta1.jpeg" alt="Silueta">
+      <h3>Silueta – $1400</h3>
+      <button onclick="location.href='product.html?id=p03'">Ver</button>
+      <button>Agregar al carrito</button>
+    </div>
+
+    <div class="product-card">
+      <img src="Define1.jpeg" alt="Define">
+      <h3>Define – $1000</h3>
+      <button onclick="location.href='product.html?id=p04'">Ver</button>
+      <button>Agregar al carrito</button>
+    </div>
+
+  </div>
+</section>
+
 </body>
 </html>
-

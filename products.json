@@ -1,91 +1,36 @@
-// product.js - muestra la página de detalle según el id ?id=p01
-const PRODUCT_DETAILS = {
-  p01: {
+// product.js — Lista principal de productos Sveltea
+
+const PRODUCTS = [
+  {
+    id: "p01",
     name: "Sveltea Esencia",
-    description: `
-      <p><strong>Sveltea Esencia</strong> refresca, revitaliza y nutre la piel con extractos naturales de té verde, rosa mosqueta y colágeno vegetal. Ideal para uso diario, deja una sensación de frescura y luminosidad al instante.</p>
-      <ul>
-        <li>Tonifica y suaviza la piel.</li>
-        <li>Hidratación ligera de rápida absorción.</li>
-        <li>Fragancia delicada y relajante.</li>
-      </ul>
-    `,
     price: 1000,
-    image: "Escencia.jpeg" // si tus imágenes están en assets/ cambia a "assets/Escencia.jpg"
+    short: "Refresca y revitaliza la piel con extractos naturales.",
+    image: "Escencia.jpeg",
+    link: "product.html?id=p01"
   },
-  p02: {
-    name: "Sveltea Renova",
-    description: `
-      <p><strong>Sveltea Renova</strong> es un suplemento avanzado diseñado para regenerar y fortalecer desde el interior. Su fórmula combina colágeno hidrolizado, antioxidantes y vitaminas esenciales que promueven una piel más firme, cabello más fuerte y uñas saludables.</p>
-      <ul>
-        <li>Fórmula concentrada con colágeno, vitamina C y biotina.</li>
-        <li>Favorece la elasticidad y luminosidad de la piel.</li>
-        <li>Apoya la regeneración celular y combate los signos del envejecimiento.</li>
-      </ul>
-    `,
+  {
+    id: "p02",
+    name: "Sveltea Renova 30 cápsulas",
     price: 1200,
-    image: "Renova.jpeg"
+    short: "Regenera desde adentro. Colágeno, antioxidantes y vitaminas.",
+    image: "Renova.jpeg",
+    link: "product.html?id=p02"
   },
-  p03: {
+  {
+    id: "p03",
     name: "Sveltea Silueta",
-    description: `
-      <p><strong>Sveltea Silueta</strong> apoya el metabolismo natural y la definición corporal con extractos botánicos y termogénicos suaves. Ideal para complementar una rutina activa y saludable.</p>
-      <ul>
-        <li>Apoyo natural al metabolismo.</li>
-        <li>Favorece el equilibrio y la energía diaria.</li>
-        <li>Sin estimulantes artificiales.</li>
-      </ul>
-    `,
     price: 1400,
-    image: "Silueta.jpeg"
+    short: "Apoya el metabolismo y la definición corporal de forma natural.",
+    image: "Silueta.jpeg",
+    link: "product.html?id=p03"
   },
-  p04: {
+  {
+    id: "p04",
     name: "Sveltea Define",
-    description: `
-      <p><strong>Sveltea Define</strong> combina extractos naturales reafirmantes y antioxidantes que ayudan a tonificar la piel y mantener una silueta armoniosa. Perfecto para quienes buscan definición con elegancia.</p>
-      <ul>
-        <li>Promueve firmeza y elasticidad.</li>
-        <li>Hidratación profunda y rápida absorción.</li>
-        <li>Ideal para masaje corporal o uso diario.</li>
-      </ul>
-    `,
     price: 1000,
-    image: "Define.jpeg"
+    short: "Moldea, tonifica y resalta tu figura con ingredientes selectos.",
+    image: "Define.jpeg",
+    link: "product.html?id=p04"
   }
-};
-
-// Renderiza el detalle
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-  const container = document.getElementById("productDetail");
-  if(!container){
-    console.warn("productDetail element not found");
-    return;
-  }
-
-  if (PRODUCT_DETAILS[id]) {
-    const p = PRODUCT_DETAILS[id];
-    container.innerHTML = `
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start">
-        <div>
-          <img src="${p.image}" alt="${p.name}" style="width:100%;border-radius:12px;object-fit:cover;max-height:520px">
-        </div>
-        <div>
-          <h2 style="font-family:Playfair Display,serif">${p.name}</h2>
-          ${p.description}
-          <p style="font-weight:700;font-size:1.25rem;margin-top:12px">${p.price} MXN</p>
-          <div style="margin-top:12px;display:flex;gap:8px">
-            <button class="btn add" data-id="${id}">Agregar al carrito</button>
-            <a class="btn ghost" href="checkout.html">Comprar ahora</a>
-          </div>
-        </div>
-      </div>
-    `;
-    const btn = document.querySelector('.add');
-    if(btn) btn.addEventListener('click', ()=> addToCart(id));
-  } else {
-    container.innerHTML = `<p>Producto no encontrado.</p>`;
-  }
-})();
-
+];

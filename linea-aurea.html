@@ -5,77 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Línea Áurea – Sveltea</title>
   <link rel="stylesheet" href="styles.css" />
-
   <style>
-
-    /* --- AJUSTES GENERALES DEL ENCABEZADO --- */
-    header .logo {
-      font-size: 2.2rem; /* aumentado 15% */
-      letter-spacing: 4px;
-    }
-
-    header img {
-      transform: scale(1.15); /* logo 15% más grande */
-    }
-
-    /* --- TITULO PRINCIPAL --- */
     .aurea-header {
       text-align: center;
-      margin-top: 90px;
-      font-size: 2.7rem;
-      font-weight: 300;
-      letter-spacing: 3px;
-      color: #ffb7df;     /* tono rosa metálico */
-      text-shadow: 0 0 15px rgba(255, 160, 220, 0.45);
+      padding: 40px 20px;
+      color: #ffd8f0;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      margin-top: 80px;
     }
 
-    /* --- IMAGEN PRINCIPAL --- */
     .aurea-img {
-      width: 70%; /* reducción del 30% */
+      width: 70%; /* reducción del 30% solicitada */
       display: block;
-      margin: 40px auto;
-      border-radius: 25px;
-      box-shadow: 0 0 45px rgba(255, 190, 230, 0.22);
+      margin: 0 auto 50px auto;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 207, 234, 0.25);
     }
 
-    /* --- PRODUCTO INDIVIDUAL --- */
     .aurea-product {
       display: flex;
-      gap: 35px;
+      gap: 25px;
       align-items: center;
       justify-content: center;
+      margin: 40px auto;
       width: 90%;
-      max-width: 1150px;
-      margin: 50px auto;
-      padding: 35px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 30px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.10);
+      max-width: 1100px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 25px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.07);
     }
 
     .aurea-product img {
-      width: 320px;
-      border-radius: 25px;
-      box-shadow: 0 0 35px rgba(255, 200, 240, 0.30);
+      width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 207, 234, 0.25);
     }
 
-    /* --- TEXTO DEL PRODUCTO --- */
     .aurea-text {
       flex: 1;
-      font-size: 1.35rem;
-      color: #ffe4f5;
-      line-height: 1.6;
-      letter-spacing: 0.5px;
+      font-size: 1.3rem;
+      color: #ffd8f0;
+      line-height: 1.5;
       font-weight: 300;
     }
 
     .aurea-title {
-      font-size: 2.1rem;
-      margin-bottom: 15px;
+      font-size: 2rem;
+      margin-bottom: 10px;
       color: #ffffff;
-      letter-spacing: 2px;
-      text-shadow: 0 0 12px rgba(255, 200, 240, 0.35);
+      letter-spacing: 1px;
     }
 
   </style>
@@ -83,12 +64,8 @@
 
 <body>
 
-  <!-- BARRA SUPERIOR -->
   <header>
-    <img src="logo.jpg" alt="SVELTEA Logo" class="logo-img" />
-
     <div class="logo">SVELTEA</div>
-
     <nav>
       <a href="index.html">Inicio</a>
       <a href="linea-aurea.html" class="active">Línea Áurea</a>
@@ -96,10 +73,9 @@
     </nav>
   </header>
 
-  <!-- TITULO PRINCIPAL -->
+
   <h1 class="aurea-header">LÍNEA ÁUREA</h1>
 
-  <!-- IMAGEN LARGA REDUCIDA -->
   <img src="Urea.jpeg" class="aurea-img" alt="Línea Áurea">
 
   <!-- PRODUCTO 1 -->
@@ -152,6 +128,11 @@
       La proporción áurea vive en ti: belleza, fuerza y confianza.  
       Eres la medida exacta de la perfección.
     </div>
+  </section>
+
+</body>
+</html>
+
   </section>
 
 </body>

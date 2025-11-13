@@ -130,3 +130,70 @@ footer {
   background: #0a0908;
   color: #d4af37;
 }
+.product-detail {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: radial-gradient(circle, #181614, #0b0a09);
+  color: #f2f2f2;
+}
+
+.product-box {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.product-box img {
+  width: 350px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.product-info {
+  max-width: 400px;
+  text-align: left;
+}
+
+.product-info h2 {
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #e5c26b;
+}
+
+.pagos {
+  background: #111;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.pagos h2 {
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.payments {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.payments img {
+  width: 60px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.payments img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}

@@ -4,19 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Línea Áurea – Sveltea</title>
+
   <link rel="stylesheet" href="styles.css" />
+
   <style>
+
+    /* ————— HEADER ————— */
+    header {
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 2.5rem;
+      letter-spacing: 5px;
+      color: #ffb7df;
+      text-shadow: 0 0 14px rgba(255, 170, 220, 0.55);
+    }
+
+    nav a {
+      color: #ffe7f6;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: white;
+      text-shadow: 0 0 12px rgba(255, 200, 240, 0.55);
+    }
+
+    /* ————— PAGE FORMAT ————— */
+
+    body {
+      padding-top: 120px;
+    }
+
     .aurea-header {
       text-align: center;
       padding: 40px 20px;
       color: #ffd8f0;
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      margin-top: 80px;
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      margin-top: 20px;
+      text-shadow: 0 0 14px rgba(255, 180, 240, 0.45);
+      font-weight: 300;
     }
 
     .aurea-img {
-      width: 70%; /* reducción del 30% solicitada */
+      width: 70%;
       display: block;
       margin: 0 auto 50px auto;
       border-radius: 20px;
@@ -46,9 +97,9 @@
 
     .aurea-text {
       flex: 1;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: #ffd8f0;
-      line-height: 1.5;
+      line-height: 1.55;
       font-weight: 300;
     }
 
@@ -57,122 +108,110 @@
       margin-bottom: 10px;
       color: #ffffff;
       letter-spacing: 1px;
+      text-shadow: 0 0 12px rgba(255, 200, 240, 0.35);
     }
 
-  </style>/* --- HEADER REESTILIZADO COMO EN LA PÁGINA PRINCIPAL --- */
-header {
-  width: 100%;
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  z-index: 1000;
-}
+    .btn-cart {
+      margin-top: 18px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 12px;
+      background: #ffb7df;
+      color: #000;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
 
-.logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 2.2rem;  /* AUMENTADO */
-  letter-spacing: 4px;
-  color: #ffb7df;
-  text-shadow: 0 0 12px rgba(255, 170, 220, 0.45);
-}
+    .btn-cart:hover {
+      transform: scale(1.07);
+      background: #ffd0ea;
+    }
 
-/* Logo imagen si usas uno */
-.logo-img {
-  width: 103%; /* +3% solicitado */
-}
-
-/* Nav */
-nav a {
-  color: #ffe7f6;
-  text-decoration: none;
-  margin-left: 25px;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  transition: 0.3s;
-}
-
-nav a:hover,
-nav a.active {
-  color: white;
-  text-shadow: 0 0 12px rgba(255, 200, 240, 0.55);
-}
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">SVELTEA</div>
-  <nav>...</nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">SVELTEA</div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="linea-aurea.html" class="active">Línea Áurea</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
 
   <h1 class="aurea-header">LÍNEA ÁUREA</h1>
 
   <img src="Urea.jpeg" class="aurea-img" alt="Línea Áurea">
 
+
   <!-- PRODUCTO 1 -->
   <section class="aurea-product">
-    <img src="Escencia1.jpeg" alt="Sveltea Esencia">
+    <img src="Escencia1.jpeg" alt="Sveltea Esencia"> 
     <div class="aurea-text">
       <h2 class="aurea-title">🌿 SVELTEA ESENCIA — $1000 MXN</h2>
-      ✨ El inicio de la perfección natural.  
-      Despierta la energía femenina que habita en ti.  
-      Purifica, equilibra y prepara tu cuerpo para renacer.  
-      Como la proporción áurea, cada célula encuentra su armonía.  
+      ✨ El inicio de la perfección natural.<br>
+      Despierta la energía femenina que habita en ti.<br>
+      Purifica, equilibra y prepara tu cuerpo para renacer.<br>
+      Como la proporción áurea, cada célula encuentra su armonía.<br>
       Tu transformación comienza desde el interior.
+      <br><br>
+      <button class="btn-cart">Agregar al carrito</button>
     </div>
   </section>
+
 
   <!-- PRODUCTO 2 -->
   <section class="aurea-product">
-    <img src="Renova1.jpeg" alt="Sveltea Renova">
+    <img src="Renova1.jpeg" alt="Sveltea Renova"> 
     <div class="aurea-text">
       <h2 class="aurea-title">🌸 SVELTEA RENOVA — $1200 MXN</h2>
-      👑 Renueva, Fluye, Evoluciona.  
-      Tu cuerpo se alinea con la belleza universal.  
-      Libérate de lo que no necesitas y deja surgir tu poder.  
-      En ti, las curvas y la energía se equilibran como en la geometría divina.  
+      👑 Renueva, Fluye, Evoluciona.<br>
+      Tu cuerpo se alinea con la belleza universal.<br>
+      Libérate de lo que no necesitas y deja surgir tu poder.<br>
+      En ti, las curvas y la energía se equilibran como en la geometría divina.<br>
       Renaces en sintonía con el universo.
+      <br><br>
+      <button class="btn-cart">Agregar al carrito</button>
     </div>
   </section>
+
 
   <!-- PRODUCTO 3 -->
   <section class="aurea-product">
-    <img src="Silueta1.jpeg" alt="Sveltea Silueta">
+    <img src="Silueta1.jpeg" alt="Sveltea Silueta"> 
     <div class="aurea-text">
       <h2 class="aurea-title">🌺 SVELTEA SILUETA — $1400 MXN</h2>
-      💫 La proporción de tu belleza revelada.  
-      Moldea, define y celebra tu esencia.  
-      Tus curvas se vuelven arte, reflejo de la perfección dorada.  
-      La proporción áurea hecha cuerpo femenino.  
+      💫 La proporción de tu belleza revelada.<br>
+      Moldea, define y celebra tu esencia.<br>
+      Tus curvas se vuelven arte, reflejo de la perfección dorada.<br>
+      La proporción áurea hecha cuerpo femenino.<br>
       Eres simetría, equilibrio y magnetismo.
+      <br><br>
+      <button class="btn-cart">Agregar al carrito</button>
     </div>
   </section>
+
 
   <!-- PRODUCTO 4 -->
   <section class="aurea-product">
-    <img src="Define1.jpeg" alt="Sveltea Define">
+    <img src="Define1.jpeg" alt="Sveltea Define"> 
     <div class="aurea-text">
       <h2 class="aurea-title">💎 SVELTEA DEFINE — $1000 MXN</h2>
-      🌙 Tu poder, definido con precisión dorada.  
-      La culminación de tu transformación.  
-      Cada línea y contorno alcanzan su punto perfecto.  
-      La proporción áurea vive en ti: belleza, fuerza y confianza.  
+      🌙 Tu poder, definido con precisión dorada.<br>
+      La culminación de tu transformación.<br>
+      Cada línea y contorno alcanzan su punto perfecto.<br>
+      La proporción áurea vive en ti: belleza, fuerza y confianza.<br>
       Eres la medida exacta de la perfección.
+      <br><br>
+      <button class="btn-cart">Agregar al carrito</button>
     </div>
   </section>
 
-</body>
-</html>
-
-  </section>
 
 </body>
 </html>

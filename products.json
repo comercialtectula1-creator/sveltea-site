@@ -11,7 +11,7 @@ const PRODUCTS = [
   },
   {
     id: "p02",
-    name: "Sveltea Renova 30 cápsulas",
+    name: "Sveltea Renova",
     price: 1200,
     short: "Regenera desde adentro. Colágeno, antioxidantes y vitaminas.",
     image: "Renova.jpeg",

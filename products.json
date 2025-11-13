@@ -1,4 +1,3 @@
-// product.js - muestra la página de detalle según el id ?id=p01
 const PRODUCTS = [
   {
     id: "p01",
@@ -10,7 +9,7 @@ const PRODUCTS = [
   },
   {
     id: "p02",
-    name: "Sveltea Renova 30 cápsulas",
+    name: "Sveltea Renova",
     price: 1200,
     short: "Regenera desde adentro. Colágeno, antioxidantes y vitaminas.",
     image: "Renova.jpeg",
@@ -34,37 +33,15 @@ const PRODUCTS = [
   }
 ];
 
-// Renderiza el detalle
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-  const container = document.getElementById("productDetail");
-  if(!container){
-    console.warn("productDetail element not found");
-    return;
-  }
-
-  if (PRODUCT_DETAILS[id]) {
-    const p = PRODUCT_DETAILS[id];
-    container.innerHTML = `
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start">
-        <div>
-          <img src="${p.image}" alt="${p.name}" style="width:100%;border-radius:12px;object-fit:cover;max-height:520px">
-        </div>
-        <div>
-          <h2 style="font-family:Playfair Display,serif">${p.name}</h2>
-          ${p.description}
-          <p style="font-weight:700;font-size:1.25rem;margin-top:12px">${p.price} MXN</p>
-          <div style="margin-top:12px;display:flex;gap:8px">
-            <button class="btn add" data-id="${id}">Agregar al carrito</button>
-            <a class="btn ghost" href="checkout.html">Comprar ahora</a>
-          </div>
-        </div>
-      </div>
-    `;
-    const btn = document.querySelector('.add');
-    if(btn) btn.addEventListener('click', ()=> addToCart(id));
-  } else {
-    container.innerHTML = `<p>Producto no encontrado.</p>`;
-  }
-})();
+const grid = document.getElementById("productsGrid");
+if (grid) {
+  grid.innerHTML = PRODUCTS.map(p => `
+    <div class="product-card">
+      <img src="${p.image}" alt="${p.name}" class="product-img"/>
+      <h3>${p.name}</h3>
+      <p class="muted">${p.short}</p>
+      <p class="price">$${p.price} MXN</p>
+      <button class="btn" onclick="window.location.href='${p.link}'">Ver más detalles</button>
+    </div>
+  `).join("");
+}

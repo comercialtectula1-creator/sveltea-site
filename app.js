@@ -6,7 +6,7 @@ const PRODUCTS = [
     price: 399,
     short: "Refresca y revitaliza la piel con extractos naturales.",
     image: "Escencia.jpeg",
-    link: "product.html?id=p01"
+   link: "product-escencia.html"
   },
   {
     id: "p02",

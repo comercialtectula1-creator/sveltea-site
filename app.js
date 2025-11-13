@@ -1,38 +1,3 @@
-
-const PRODUCTS = [
-  {
-    id: "p01",
-    name: "Sveltea Esencia",
-    price: 1000,
-    short: "Refresca y revitaliza la piel con extractos naturales.",
-    image: "Escencia.jpeg",
-   link: "product-escencia.html"
-  },
-  {
-    id: "p02",
-    name: "Sveltea Renova",
-    price: 1200,
-    short: "Regenera desde adentro. Colágeno, antioxidantes y vitaminas.",
-    image: "Renova.jpeg",
-    link: "product.html?id=p02"
-  },
-  {
-    id: "p03",
-    name: "Sveltea Silueta",
-    price: 1400,
-    short: "Apoya el metabolismo y la definición corporal de forma natural.",
-    image: "Silueta.jpeg",
-    link: "product.html?id=p03"
-  },
-  {
-    id: "p04",
-    name: "Sveltea Define",
-    price: 1000,
-    short: "Moldea, tonifica y resalta tu figura con ingredientes selectos.",
-    image: "Define.jpeg",
-    link: "product.html?id=p04"
-  }
-];
 function $(sel){return document.querySelector(sel)}
 function $all(sel){return document.querySelectorAll(sel)}
 
@@ -54,7 +19,7 @@ function renderProducts(){
         <div class="product-price">${formatMoney(p.price)} MXN</div>
         <div style="display:flex;gap:8px;margin-top:8px">
           <button class="btn add" data-id="${p.id}">Agregar</button>
-          <a class="btn ghost" href="product.html?id=${p.id}">Ver</a>
+          <a class="btn ghost" href="${p.link}">Ver</a>
         </div>
       </div>
     `
@@ -66,21 +31,9 @@ function renderProducts(){
 }
 
 function getCart(){return JSON.parse(localStorage.getItem('sveltea_cart')||'{}')}
-
 function saveCart(c){localStorage.setItem('sveltea_cart', JSON.stringify(c)); updateCartCount();}
-
-function addToCart(id){
-  const cart = getCart();
-  cart[id] = (cart[id]||0)+1;
-  saveCart(cart);
-  alert('Añadido al carrito')
-}
-
-function updateCartCount(){
-  const cart = getCart();
-  const count = Object.values(cart).reduce((a,b)=>a+b,0)
-  const el = $('#cart-count'); if(el) el.textContent = count
-}
+function addToCart(id){const cart = getCart(); cart[id] = (cart[id]||0)+1; saveCart(cart); alert('Añadido al carrito')}
+function updateCartCount(){const cart = getCart(); const count = Object.values(cart).reduce((a,b)=>a+b,0); const el = $('#cart-count'); if(el) el.textContent = count}
 
 function renderCartModal(){
   const modal = $('#cartModal'); if(!modal) return;
@@ -103,68 +56,22 @@ function renderCartModal(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  function renderProducts(){
-  const grid = $('#productsGrid')
-  if(!grid) return;
-  grid.innerHTML = ''
-  for(const p of PRODUCTS){
-    const card = document.createElement('div'); card.className='card'
-    // usamos p.link (si existe) para el botón "Ver"
-    const viewHref = p.link ? p.link : `product.html?id=${p.id}`;
-    card.innerHTML = `
-      <div>
-        <div class="product-img"><img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:100%"></div>
-        <h3 class="product-title">${p.name}</h3>
-        <div class="muted">${p.short}</div>
-      </div>
-      <div style="margin-top:12px">
-        <div class="product-price">${formatMoney(p.price)} MXN</div>
-        <div style="display:flex;gap:8px;margin-top:8px">
-          <button class="btn add" data-id="${p.id}">Agregar</button>
-          <a class="btn ghost" href="${viewHref}">Ver</a>
-        </div>
-      </div>
-    `
-    grid.appendChild(card)
-  }
-  $all('.add').forEach(b=>b.addEventListener('click',e=>{
-    addToCart(e.currentTarget.dataset.id)
-  }))
-}
+  renderProducts();
   updateCartCount();
-  const cartBtn = $('#cartBtn'); if(cartBtn) cartBtn.addEventListener('click',()=>{ $('#cartModal').classList.toggle('hidden'); renderCartModal() })
-  const closeCart = $('#closeCart'); if(closeCart) closeCart.addEventListener('click',()=>$('#cartModal').classList.add('hidden'))
 
-  // contact form - simple local simulation
-  const contactForm = $('#contactForm')
+  const cartBtn = $('#cartBtn');
+  if(cartBtn) cartBtn.addEventListener('click',()=>{
+    $('#cartModal').classList.toggle('hidden');
+    renderCartModal();
+  });
+
+  const closeCart = $('#closeCart');
+  if(closeCart) closeCart.addEventListener('click',()=>$('#cartModal').classList.add('hidden'));
+
+  const contactForm = $('#contactForm');
   if(contactForm) contactForm.addEventListener('submit', e=>{
-    e.preventDefault(); alert('Gracias! Hemos recibido tu mensaje.')
-    contactForm.reset()
-  })
-
-  // Checkout page handling
-  const checkoutForm = $('#paymentForm')
-  if(checkoutForm){
-    // show summary
-    const cart = getCart(); let total=0; for(const id in cart){ const p = PRODUCTS.find(x=>x.id===id); if(p) total+=p.price*cart[id] }
-    $('#checkoutSummary').textContent = `Productos en carrito: ${Object.keys(cart).length} | Total: ${formatMoney(total)} MXN`
-    checkoutForm.addEventListener('submit', e=>{
-      e.preventDefault();
-      const form = new FormData(checkoutForm);
-      const payment = form.get('payment');
-      // simulate different flow
-      if(payment==='paypal'){
-        // simulate redirection
-        $('#paymentResult').classList.remove('hidden'); $('#paymentResult').textContent = 'Redirigiendo a PayPal (simulado)...'
-        setTimeout(()=>{ window.location.href = 'https://www.paypal.com'; }, 1200)
-      } else if(payment==='oxxo'){
-        $('#paymentResult').classList.remove('hidden'); $('#paymentResult').textContent = 'Se generó un código de pago para OXXO (simulado). Por favor imprime o guarda el código.'
-        // clear cart
-        localStorage.removeItem('sveltea_cart'); updateCartCount();
-      } else {
-        $('#paymentResult').classList.remove('hidden'); $('#paymentResult').textContent = 'Pago con tarjeta procesado (simulado). Gracias por tu compra!'
-        localStorage.removeItem('sveltea_cart'); updateCartCount();
-      }
-    })
-  }
-})
+    e.preventDefault();
+    alert('Gracias! Hemos recibido tu mensaje.');
+    contactForm.reset();
+  });
+});

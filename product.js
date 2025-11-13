@@ -45,12 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   container.innerHTML = `
-    <div class="card" style="max-width:600px;margin:2rem auto;text-align:center;">
-      <img src="${product.image}" alt="${product.name}">
-      <h2>${product.name}</h2>
-      <p>${product.desc}</p>
-      <div style="margin-top:1rem;font-weight:bold;">${product.price} MXN</div>
-      <button class="btn">Agregar al carrito</button>
+    <div class="product-box">
+      <div class="product-img">
+        <img src="${product.image}" alt="${product.name}">
+      </div>
+      <div class="product-info">
+        <h2>${product.name}</h2>
+        <p>${product.desc}</p>
+        <div class="price">${product.price} MXN</div>
+        <button class="btn">Agregar al carrito</button>
+      </div>
     </div>
   `;
 });
+

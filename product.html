@@ -1,78 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Producto — SVELTEA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>SVELTEA Producto</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="product.js"></script>
 </head>
-<body class="product-page">
-  <div id="productDetail" class="container"></div>
+<body>
+  <header class="header">
+    <a href="index.html"><img src="logo.jpg" alt="SVELTEA Logo" class="logo"></a>
+  </header>
 
-  <script>
-  const PRODUCTS_DETAIL = {
-    p01: {
-      name: "🌿 SVELTEA Esencia",
-      desc: `✨ El inicio de la perfección natural.<br>
-      Despierta la energía femenina que habita en ti.<br>
-      Purifica, equilibra y prepara tu cuerpo para renacer.<br>
-      Como la proporción áurea, cada célula encuentra su armonía.<br>
-      Tu transformación comienza desde el interior.`,
-      price: 1000,
-      image: "Escencia1.jpeg"
-    },
-    p02: {
-      name: "🌸 SVELTEA Renova",
-      desc: `👑 Renueva, Fluye, Evoluciona.<br>
-      Tu cuerpo se alinea con la belleza universal.<br>
-      Libérate de lo que no necesitas y deja surgir tu poder.<br>
-      En ti, las curvas y la energía se equilibran como en la geometría divina.<br>
-      Renaces en sintonía con el universo.`,
-      price: 1200,
-      image: "Renova1.jpeg"
-    },
-    p03: {
-      name: "🌺 SVELTEA Silueta",
-      desc: `💫 La proporción de tu belleza revelada.<br>
-      Moldea, define y celebra tu esencia.<br>
-      Tus curvas se vuelven arte, reflejo de la perfección dorada.<br>
-      La proporción áurea hecha cuerpo femenino.<br>
-      Eres simetría, equilibrio y magnetismo.`,
-      price: 1400,
-      image: "Silueta1.jpeg"
-    },
-    p04: {
-      name: "💎 SVELTEA Define",
-      desc: `🌙 Tu poder, definido con precisión dorada.<br>
-      La culminación de tu transformación.<br>
-      Cada línea y contorno alcanzan su punto perfecto.<br>
-      La proporción áurea vive en ti: belleza, fuerza y confianza.<br>
-      Eres la medida exacta de la perfección.`,
-      price: 1000,
-      image: "Define1.jpeg"
-    }
-  };
+  <main id="productDetail" class="product-detail"></main>
 
-  const id = new URLSearchParams(window.location.search).get("id");
-  const p = PRODUCTS_DETAIL[id];
-  const container = document.getElementById("productDetail");
-
-  if(p){
-    container.innerHTML = `
-      <div class="product-detail">
-        <img src="${p.image}" alt="${p.name}">
-        <h1>${p.name}</h1>
-        <p class="desc">${p.desc}</p>
-        <p class="price">${p.price} MXN</p>
-        <button class="btn" onclick="addToCart('${id}')">Agregar al carrito</button>
-        <a href="index.html" class="btn ghost">Volver</a>
-      </div>
-    `;
-  } else {
-    container.innerHTML = `<p>Producto no encontrado</p>`;
-  }
-  </script>
-  <script src="app.js"></script>
+  <footer>
+    <p>© 2025 SVELTEA</p>
+  </footer>
 </body>
 </html>

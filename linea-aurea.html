@@ -59,7 +59,51 @@
       letter-spacing: 1px;
     }
 
-  </style>
+  </style>/* --- HEADER REESTILIZADO COMO EN LA PÁGINA PRINCIPAL --- */
+header {
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 2.2rem;  /* AUMENTADO */
+  letter-spacing: 4px;
+  color: #ffb7df;
+  text-shadow: 0 0 12px rgba(255, 170, 220, 0.45);
+}
+
+/* Logo imagen si usas uno */
+.logo-img {
+  width: 103%; /* +3% solicitado */
+}
+
+/* Nav */
+nav a {
+  color: #ffe7f6;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: white;
+  text-shadow: 0 0 12px rgba(255, 200, 240, 0.55);
+}
 </head>
 
 <body>

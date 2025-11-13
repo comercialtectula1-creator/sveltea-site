@@ -5,88 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Producto — Sveltea</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Si tu styles.css está en la raíz usar: href="styles.css"
+       Si está en carpeta css/ usar: href="css/styles.css" -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>const PRODUCT_DETAILS = {
-  p01: {
-    name: "Sveltea Esencia",
-    description: `
-      <p><strong>Sveltea Esencia</strong> refresca, revitaliza y nutre la piel con extractos naturales de té verde, rosa mosqueta y colágeno vegetal. Ideal para uso diario, deja una sensación de frescura y luminosidad al instante.</p>
-      <ul>
-        <li>Tonifica y suaviza la piel.</li>
-        <li>Hidratación ligera de rápida absorción.</li>
-        <li>Fragancia delicada y relajante.</li>
-      </ul>
-    `,
-    price: 399,
-    image: "Escencia.jpg"
-  },
-  p02: {
-    name: "Sveltea Renova 30 cápsulas",
-    description: `
-      <p><strong>Sveltea Renova</strong> es un suplemento avanzado diseñado para regenerar y fortalecer desde el interior. Su fórmula combina colágeno hidrolizado, antioxidantes y vitaminas esenciales que promueven una piel más firme, cabello más fuerte y uñas saludables.</p>
-      <ul>
-        <li>Fórmula concentrada con colágeno, vitamina C y biotina.</li>
-        <li>Favorece la elasticidad y luminosidad de la piel.</li>
-        <li>Apoya la regeneración celular y combate los signos del envejecimiento.</li>
-      </ul>
-    `,
-    price: 699,
-    image: "Renova.jpg"
-  },
-  p03: {
-    name: "Sveltea Silueta",
-    description: `
-      <p><strong>Sveltea Silueta</strong> apoya el metabolismo natural y la definición corporal con extractos botánicos y termogénicos suaves. Ideal para complementar una rutina activa y saludable.</p>
-      <ul>
-        <li>Apoyo natural al metabolismo.</li>
-        <li>Favorece el equilibrio y la energía diaria.</li>
-        <li>Sin estimulantes artificiales.</li>
-      </ul>
-    `,
-    price: 549,
-    image: "Silueta.jpg"
-  },
-  p04: {
-    name: "Sveltea Define",
-    description: `
-      <p><strong>Sveltea Define</strong> combina extractos naturales reafirmantes y antioxidantes que ayudan a tonificar la piel y mantener una silueta armoniosa. Perfecto para quienes buscan definición con elegancia.</p>
-      <ul>
-        <li>Promueve firmeza y elasticidad.</li>
-        <li>Hidratación profunda y rápida absorción.</li>
-        <li>Ideal para masaje corporal o uso diario.</li>
-      </ul>
-    `,
-    price: 599,
-    image: "Define.jpg"
-  }
-};
-
-// Mostrar información según ID
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-const container = document.getElementById("productDetail");
-
-if (PRODUCT_DETAILS[id]) {
-  const p = PRODUCT_DETAILS[id];
-  container.innerHTML = `
-    <div class="product-detail">
-      <img src="${p.image}" alt="${p.name}" class="product-image" />
-      <div class="product-info">
-        <h2>${p.name}</h2>
-        ${p.description}
-        <p class="price"><strong>$${p.price} MXN</strong></p>
-        <button class="btn" onclick="addToCart('${id}')">Añadir al carrito</button>
-      </div>
-    </div>
-  `;
-} else {
-  container.innerHTML = `<p>Producto no encontrado.</p>`;
-}
+<body>
   <header class="topbar small">
     <div class="container">
-      <a class="brand" href="/">
-        <img src="assets/logo.jpg" alt="Sveltea logo" class="logo" />
+      <a class="brand" href="./">
+        <img src="logo.jpg" alt="Sveltea logo" class="logo" />
         <span class="brand-name">Sveltea</span>
       </a>
     </div>
@@ -96,18 +23,9 @@ if (PRODUCT_DETAILS[id]) {
     <div id="productDetail"></div>
   </main>
 
-  <script src="js/app.js"></script>
-  <script>
-    // read id from URL
-    const params = new URLSearchParams(location.search);
-    const id = params.get('id');
-    const p = (window.PRODUCTS||[]).find(x=>x.id===id) || null;
-    const el = document.getElementById('productDetail');
-    if(!p){ el.innerHTML = '<p>Producto no encontrado</p>'; }
-    else{
-      el.innerHTML = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem"><div><img src="${p.image}" style="max-width:100%;border-radius:12px"></div><div><h2>${p.name}</h2><p class="muted">${p.short}</p><div style="font-weight:700;font-size:1.25rem">${p.price} MXN</div><div style="margin-top:12px"><button class="btn add" data-id="${p.id}">Agregar al carrito</button> <a class="btn ghost" href="checkout.html">Comprar ahora</a></div></div></div>`
-      document.querySelector('.add').addEventListener('click',()=>{ addToCart(p.id) })
-    }
-  </script>
+  <!-- Asegúrate que app.js está en la raíz; si no, cambia la ruta -->
+  <script src="app.js"></script>
+  <!-- product.js contendrá los detalles por producto -->
+  <script src="product.js"></script>
 </body>
 </html>

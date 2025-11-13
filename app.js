@@ -3,7 +3,7 @@ const PRODUCTS = [
   {
     id: "p01",
     name: "Sveltea Esencia",
-    price: 399,
+    price: 1000,
     short: "Refresca y revitaliza la piel con extractos naturales.",
     image: "Escencia.jpeg",
    link: "product-escencia.html"

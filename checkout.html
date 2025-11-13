@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — Sveltea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar small">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="assets/logo.jpg" alt="Sveltea logo" class="logo" />
+        <span class="brand-name">Sveltea</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Checkout</h2>
+    <div id="checkoutArea">
+      <p id="checkoutSummary" class="muted">Cargando resumen del carrito...</p>
+
+      <form id="paymentForm" class="checkout-form">
+        <label>Nombre completo<input type="text" name="name" required></label>
+        <label>Correo electrónico<input type="email" name="email" required></label>
+        <label>Dirección de envío<textarea name="address" rows="2" required></textarea></label>
+
+        <h3>Método de pago</h3>
+        <label class="radio"><input type="radio" name="payment" value="card" checked>Tarjeta (simulado)</label>
+        <label class="radio"><input type="radio" name="payment" value="paypal">PayPal (redirección simulada)</label>
+        <label class="radio"><input type="radio" name="payment" value="oxxo">OXXO (pago en efectivo - simulación)</label>
+
+        <button type="submit" class="btn">Confirmar y pagar</button>
+      </form>
+
+      <div id="paymentResult" class="payment-result hidden"></div>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

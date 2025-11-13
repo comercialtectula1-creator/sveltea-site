@@ -1,0 +1,20 @@
+[
+  {
+    "id": "p01",
+    "name": "Sérum Reafirmante",
+    "price": 429,
+    "short": "Sérum ligero para firmeza y brillo."
+  },
+  {
+    "id": "p02",
+    "name": "Crema Hidratante Deluxe",
+    "price": 349,
+    "short": "Hidratación profunda, textura seda."
+  },
+  {
+    "id": "p03",
+    "name": "Aceite Corporal Rose",
+    "price": 279,
+    "short": "Aroma floral suave, acabado satinado."
+  }
+]

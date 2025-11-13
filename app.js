@@ -103,7 +103,35 @@ function renderCartModal(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  renderProducts(); updateCartCount();
+  function renderProducts(){
+  const grid = $('#productsGrid')
+  if(!grid) return;
+  grid.innerHTML = ''
+  for(const p of PRODUCTS){
+    const card = document.createElement('div'); card.className='card'
+    // usamos p.link (si existe) para el botón "Ver"
+    const viewHref = p.link ? p.link : `product.html?id=${p.id}`;
+    card.innerHTML = `
+      <div>
+        <div class="product-img"><img src="${p.image}" alt="${p.name}" style="max-width:100%;max-height:100%"></div>
+        <h3 class="product-title">${p.name}</h3>
+        <div class="muted">${p.short}</div>
+      </div>
+      <div style="margin-top:12px">
+        <div class="product-price">${formatMoney(p.price)} MXN</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn add" data-id="${p.id}">Agregar</button>
+          <a class="btn ghost" href="${viewHref}">Ver</a>
+        </div>
+      </div>
+    `
+    grid.appendChild(card)
+  }
+  $all('.add').forEach(b=>b.addEventListener('click',e=>{
+    addToCart(e.currentTarget.dataset.id)
+  }))
+}
+  updateCartCount();
   const cartBtn = $('#cartBtn'); if(cartBtn) cartBtn.addEventListener('click',()=>{ $('#cartModal').classList.toggle('hidden'); renderCartModal() })
   const closeCart = $('#closeCart'); if(closeCart) closeCart.addEventListener('click',()=>$('#cartModal').classList.add('hidden'))
 

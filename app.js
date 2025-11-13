@@ -1,3 +1,10 @@
+
+const PRODUCTS = [
+  {"id": "p01", "name":"Sérum Reafirmante", "price": 429, "short":"Sérum ligero para firmeza y brillo.","image":"assets/logo.jpg"},
+  {"id": "p02", "name":"Crema Hidratante Deluxe", "price": 349, "short":"Hidratación profunda, textura seda.","image":"assets/logo.jpg"},
+  {"id": "p03", "name":"Aceite Corporal Rose", "price": 279, "short":"Aroma floral suave, acabado satinado.","image":"assets/logo.jpg"}
+];
+
 function $(sel){return document.querySelector(sel)}
 function $all(sel){return document.querySelectorAll(sel)}
 
@@ -19,7 +26,7 @@ function renderProducts(){
         <div class="product-price">${formatMoney(p.price)} MXN</div>
         <div style="display:flex;gap:8px;margin-top:8px">
           <button class="btn add" data-id="${p.id}">Agregar</button>
-          <a class="btn ghost" href="${p.link}">Ver</a>
+          <a class="btn ghost" href="product.html?id=${p.id}">Ver</a>
         </div>
       </div>
     `
@@ -31,9 +38,21 @@ function renderProducts(){
 }
 
 function getCart(){return JSON.parse(localStorage.getItem('sveltea_cart')||'{}')}
+
 function saveCart(c){localStorage.setItem('sveltea_cart', JSON.stringify(c)); updateCartCount();}
-function addToCart(id){const cart = getCart(); cart[id] = (cart[id]||0)+1; saveCart(cart); alert('Añadido al carrito')}
-function updateCartCount(){const cart = getCart(); const count = Object.values(cart).reduce((a,b)=>a+b,0); const el = $('#cart-count'); if(el) el.textContent = count}
+
+function addToCart(id){
+  const cart = getCart();
+  cart[id] = (cart[id]||0)+1;
+  saveCart(cart);
+  alert('Añadido al carrito')
+}
+
+function updateCartCount(){
+  const cart = getCart();
+  const count = Object.values(cart).reduce((a,b)=>a+b,0)
+  const el = $('#cart-count'); if(el) el.textContent = count
+}
 
 function renderCartModal(){
   const modal = $('#cartModal'); if(!modal) return;
@@ -43,7 +62,7 @@ function renderCartModal(){
   let total=0;
   for(const id in cart){
     const qty = cart[id];
-    const product = PRODUCTS.find(p=>p.id===id) || {name:id,price:0,image:'logo.jpeg'}
+    const product = PRODUCTS.find(p=>p.id===id) || {name:id,price:0,image:'assets/logo.jpg'}
     const row = document.createElement('div'); row.className='cart-item'
     row.innerHTML = `<img src="${product.image}"><div style="flex:1"><strong>${product.name}</strong><div class="muted">x${qty}</div></div><div style="text-align:right"><div>${formatMoney(product.price*qty)}</div><button class="btn ghost remove" data-id="${id}">Eliminar</button></div>`
     itemsDiv.appendChild(row)
@@ -56,23 +75,40 @@ function renderCartModal(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  renderProducts();
-  updateCartCount();
+  renderProducts(); updateCartCount();
+  const cartBtn = $('#cartBtn'); if(cartBtn) cartBtn.addEventListener('click',()=>{ $('#cartModal').classList.toggle('hidden'); renderCartModal() })
+  const closeCart = $('#closeCart'); if(closeCart) closeCart.addEventListener('click',()=>$('#cartModal').classList.add('hidden'))
 
-  const cartBtn = $('#cartBtn');
-  if(cartBtn) cartBtn.addEventListener('click',()=>{
-    $('#cartModal').classList.toggle('hidden');
-    renderCartModal();
-  });
-
-  const closeCart = $('#closeCart');
-  if(closeCart) closeCart.addEventListener('click',()=>$('#cartModal').classList.add('hidden'));
-
-  const contactForm = $('#contactForm');
+  // contact form - simple local simulation
+  const contactForm = $('#contactForm')
   if(contactForm) contactForm.addEventListener('submit', e=>{
-    e.preventDefault();
-    alert('Gracias! Hemos recibido tu mensaje.');
-    contactForm.reset();
-  });
-});
+    e.preventDefault(); alert('Gracias! Hemos recibido tu mensaje.')
+    contactForm.reset()
+  })
 
+  // Checkout page handling
+  const checkoutForm = $('#paymentForm')
+  if(checkoutForm){
+    // show summary
+    const cart = getCart(); let total=0; for(const id in cart){ const p = PRODUCTS.find(x=>x.id===id); if(p) total+=p.price*cart[id] }
+    $('#checkoutSummary').textContent = `Productos en carrito: ${Object.keys(cart).length} | Total: ${formatMoney(total)} MXN`
+    checkoutForm.addEventListener('submit', e=>{
+      e.preventDefault();
+      const form = new FormData(checkoutForm);
+      const payment = form.get('payment');
+      // simulate different flow
+      if(payment==='paypal'){
+        // simulate redirection
+        $('#paymentResult').classList.remove('hidden'); $('#paymentResult').textContent = 'Redirigiendo a PayPal (simulado)...'
+        setTimeout(()=>{ window.location.href = 'https://www.paypal.com'; }, 1200)
+      } else if(payment==='oxxo'){
+        $('#paymentResult').classList.remove('hidden'); $('#paymentResult').textContent = 'Se generó un código de pago para OXXO (simulado). Por favor imprime o guarda el código.'
+        // clear cart
+        localStorage.removeItem('sveltea_cart'); updateCartCount();
+      } else {
+        $('#paymentResult').classList.remove('hidden'); $('#paymentResult').textContent = 'Pago con tarjeta procesado (simulado). Gracias por tu compra!'
+        localStorage.removeItem('sveltea_cart'); updateCartCount();
+      }
+    })
+  }
+})

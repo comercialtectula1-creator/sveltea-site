@@ -1,35 +1,34 @@
-// product.js — Lista principal de productos Sveltea
-
+// product.js — Lista de productos SVELTEA
 const PRODUCTS = [
   {
     id: "p01",
-    name: "Sveltea Esencia",
+    name: "🌿 SVELTEA Esencia",
     price: 1000,
-    short: "Refresca y revitaliza la piel con extractos naturales.",
+    short: "El inicio de la perfección natural.",
     image: "Escencia.jpeg",
     link: "product.html?id=p01"
   },
   {
     id: "p02",
-    name: "Sveltea Renova",
+    name: "🌸 SVELTEA Renova",
     price: 1200,
-    short: "Regenera desde adentro. Colágeno, antioxidantes y vitaminas.",
+    short: "Renueva, fluye, evoluciona.",
     image: "Renova.jpeg",
     link: "product.html?id=p02"
   },
   {
     id: "p03",
-    name: "Sveltea Silueta",
+    name: "🌺 SVELTEA Silueta",
     price: 1400,
-    short: "Apoya el metabolismo y la definición corporal de forma natural.",
+    short: "La proporción de tu belleza revelada.",
     image: "Silueta.jpeg",
     link: "product.html?id=p03"
   },
   {
     id: "p04",
-    name: "Sveltea Define",
+    name: "💎 SVELTEA Define",
     price: 1000,
-    short: "Moldea, tonifica y resalta tu figura con ingredientes selectos.",
+    short: "Tu poder, definido con precisión dorada.",
     image: "Define.jpeg",
     link: "product.html?id=p04"
   }

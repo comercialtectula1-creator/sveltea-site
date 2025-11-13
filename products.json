@@ -11,7 +11,7 @@ const PRODUCT_DETAILS = {
       </ul>
     `,
     price: 399,
-    image: "Escencia.jpg" // si tus imágenes están en assets/ cambia a "assets/Escencia.jpg"
+    image: "Escencia.jpeg" // si tus imágenes están en assets/ cambia a "assets/Escencia.jpg"
   },
   p02: {
     name: "Sveltea Renova 30 cápsulas",
@@ -24,7 +24,7 @@ const PRODUCT_DETAILS = {
       </ul>
     `,
     price: 699,
-    image: "Renova.jpg"
+    image: "Renova.jpeg"
   },
   p03: {
     name: "Sveltea Silueta",
@@ -37,7 +37,7 @@ const PRODUCT_DETAILS = {
       </ul>
     `,
     price: 549,
-    image: "Silueta.jpg"
+    image: "Silueta.jpeg"
   },
   p04: {
     name: "Sveltea Define",
@@ -50,7 +50,7 @@ const PRODUCT_DETAILS = {
       </ul>
     `,
     price: 599,
-    image: "Define.jpg"
+    image: "Define.jpeg"
   }
 };
 

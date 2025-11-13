@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Producto — Sveltea</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Si tu styles.css está en la raíz usar: href="styles.css"
+       Si está en carpeta css/ usar: href="css/styles.css" -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,47 +20,12 @@
   </header>
 
   <main class="container">
-  <div id="productDetail"></div>  
-</main>
+    <div id="productDetail"></div>
+  </main>
 
-  <script>
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-
-const PRODUCT_DETAILS = {
-  p01: {
-    name: "Sveltea Esencia",
-    description: `
-      <p><strong>Sveltea Esencia</strong></p>
-      <p>✨ El inicio de la perfección natural.<br>
-      Despierta la energía femenina que habita en ti.<br>
-      Purifica, equilibra y prepara tu cuerpo para renacer.<br>
-      Como la proporción áurea, cada célula encuentra su armonía.<br>
-      Tu transformación comienza desde el interior.</p>
-    `,
-    price: 1000,
-    image: "Escencia.jpeg"
-  },
-  p02: { name: "Sveltea Renova", description: "Próximamente.", price: 1200, image: "Renova.jpeg" },
-  p03: { name: "Sveltea Silueta", description: "Próximamente.", price: 1400, image: "Silueta.jpeg" },
-  p04: { name: "Sveltea Define", description: "Próximamente.", price: 1000, image: "Define.jpeg" }
-};
-
-const p = PRODUCT_DETAILS[id];
-const container = document.getElementById("productDetail");
-
-if (p) {
-  container.innerHTML = `
-    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px;">
-      <img src="${p.image}" alt="${p.name}" style="max-width:300px;border-radius:20px;box-shadow:0 0 20px rgba(0,0,0,0.2);" />
-      <h2 style="font-family:'Playfair Display',serif;margin-top:20px;">${p.name}</h2>
-      <div style="font-family:'Allura',cursive;font-size:1.2rem;color:#555;">${p.description}</div>
-      <p style="font-weight:bold;margin-top:10px;">$${p.price} MXN</p>
-    </div>
-  `;
-} else {
-  container.innerHTML = `<p>Producto no encontrado.</p>`;
-}
-</script>
+  <!-- Asegúrate que app.js está en la raíz; si no, cambia la ruta -->
+  <script src="app.js"></script>
+  <!-- product.js contendrá los detalles por producto -->
+  <script src="product.js"></script>
 </body>
 </html>

@@ -10,11 +10,11 @@ const PRODUCT_DETAILS = {
         <li>Fragancia delicada y relajante.</li>
       </ul>
     `,
-    price: 399,
+    price: 1000,
     image: "Escencia.jpeg" // si tus imágenes están en assets/ cambia a "assets/Escencia.jpg"
   },
   p02: {
-    name: "Sveltea Renova 30 cápsulas",
+    name: "Sveltea Renova",
     description: `
       <p><strong>Sveltea Renova</strong> es un suplemento avanzado diseñado para regenerar y fortalecer desde el interior. Su fórmula combina colágeno hidrolizado, antioxidantes y vitaminas esenciales que promueven una piel más firme, cabello más fuerte y uñas saludables.</p>
       <ul>
@@ -23,7 +23,7 @@ const PRODUCT_DETAILS = {
         <li>Apoya la regeneración celular y combate los signos del envejecimiento.</li>
       </ul>
     `,
-    price: 699,
+    price: 1200,
     image: "Renova.jpeg"
   },
   p03: {
@@ -36,7 +36,7 @@ const PRODUCT_DETAILS = {
         <li>Sin estimulantes artificiales.</li>
       </ul>
     `,
-    price: 549,
+    price: 1400,
     image: "Silueta.jpeg"
   },
   p04: {
@@ -49,7 +49,7 @@ const PRODUCT_DETAILS = {
         <li>Ideal para masaje corporal o uso diario.</li>
       </ul>
     `,
-    price: 599,
+    price: 1000,
     image: "Define.jpeg"
   }
 };

@@ -1,104 +1,78 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Producto — Sveltea</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Si tu styles.css está en la raíz usar: href="styles.css"
-       Si está en carpeta css/ usar: href="css/styles.css" -->
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Producto — SVELTEA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>const PRODUCT_DETAILS = {
-  p01: {
-    name: "Sveltea Esencia",
-    description: `
-      <p><strong>Sveltea Esencia</strong> refresca, revitaliza y nutre la piel con extractos naturales de té verde, rosa mosqueta y colágeno vegetal. Ideal para uso diario, deja una sensación de frescura y luminosidad al instante.</p>
-      <ul>
-        <li>Tonifica y suaviza la piel.</li>
-        <li>Hidratación ligera de rápida absorción.</li>
-        <li>Fragancia delicada y relajante.</li>
-      </ul>
-    `,
-    price: 1000,
-    image: "Escencia.jpeg"
-  },
-  p02: {
-    name: "Sveltea Renova",
-    description: `
-      <p><strong>Sveltea Renova</strong> es un suplemento avanzado diseñado para regenerar y fortalecer desde el interior. Su fórmula combina colágeno hidrolizado, antioxidantes y vitaminas esenciales que promueven una piel más firme, cabello más fuerte y uñas saludables.</p>
-      <ul>
-        <li>Fórmula concentrada con colágeno, vitamina C y biotina.</li>
-        <li>Favorece la elasticidad y luminosidad de la piel.</li>
-        <li>Apoya la regeneración celular y combate los signos del envejecimiento.</li>
-      </ul>
-    `,
-    price: 1200,
-    image: "Renova.jpeg"
-  },
-  p03: {
-    name: "Sveltea Silueta",
-    description: `
-      <p><strong>Sveltea Silueta</strong> apoya el metabolismo natural y la definición corporal con extractos botánicos y termogénicos suaves. Ideal para complementar una rutina activa y saludable.</p>
-      <ul>
-        <li>Apoyo natural al metabolismo.</li>
-        <li>Favorece el equilibrio y la energía diaria.</li>
-        <li>Sin estimulantes artificiales.</li>
-      </ul>
-    `,
-    price: 1400,
-    image: "Silueta.jpeg"
-  },
-  p04: {
-    name: "Sveltea Define",
-    description: `
-      <p><strong>Sveltea Define</strong> combina extractos naturales reafirmantes y antioxidantes que ayudan a tonificar la piel y mantener una silueta armoniosa. Perfecto para quienes buscan definición con elegancia.</p>
-      <ul>
-        <li>Promueve firmeza y elasticidad.</li>
-        <li>Hidratación profunda y rápida absorción.</li>
-        <li>Ideal para masaje corporal o uso diario.</li>
-      </ul>
-    `,
-    price: 1000,
-    image: "Define.jpeg"
-  }
-};
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-const container = document.getElementById("productDetail");
+<body class="product-page">
+  <div id="productDetail" class="container"></div>
 
-if (PRODUCT_DETAILS[id]) {
-  const p = PRODUCT_DETAILS[id];
-  container.innerHTML = `
-    <div class="product-detail">
-      <img src="${p.image}" alt="${p.name}" class="product-image" />
-      <div class="product-info">
-        <h2>${p.name}</h2>
-        ${p.description}
-        <p class="price"><strong>$${p.price} MXN</strong></p>
-        <button class="btn" onclick="addToCart('${id}')">Añadir al carrito</button>
+  <script>
+  const PRODUCTS_DETAIL = {
+    p01: {
+      name: "🌿 SVELTEA Esencia",
+      desc: `✨ El inicio de la perfección natural.<br>
+      Despierta la energía femenina que habita en ti.<br>
+      Purifica, equilibra y prepara tu cuerpo para renacer.<br>
+      Como la proporción áurea, cada célula encuentra su armonía.<br>
+      Tu transformación comienza desde el interior.`,
+      price: 1000,
+      image: "Escencia1.jpeg"
+    },
+    p02: {
+      name: "🌸 SVELTEA Renova",
+      desc: `👑 Renueva, Fluye, Evoluciona.<br>
+      Tu cuerpo se alinea con la belleza universal.<br>
+      Libérate de lo que no necesitas y deja surgir tu poder.<br>
+      En ti, las curvas y la energía se equilibran como en la geometría divina.<br>
+      Renaces en sintonía con el universo.`,
+      price: 1200,
+      image: "Renova1.jpeg"
+    },
+    p03: {
+      name: "🌺 SVELTEA Silueta",
+      desc: `💫 La proporción de tu belleza revelada.<br>
+      Moldea, define y celebra tu esencia.<br>
+      Tus curvas se vuelven arte, reflejo de la perfección dorada.<br>
+      La proporción áurea hecha cuerpo femenino.<br>
+      Eres simetría, equilibrio y magnetismo.`,
+      price: 1400,
+      image: "Silueta1.jpeg"
+    },
+    p04: {
+      name: "💎 SVELTEA Define",
+      desc: `🌙 Tu poder, definido con precisión dorada.<br>
+      La culminación de tu transformación.<br>
+      Cada línea y contorno alcanzan su punto perfecto.<br>
+      La proporción áurea vive en ti: belleza, fuerza y confianza.<br>
+      Eres la medida exacta de la perfección.`,
+      price: 1000,
+      image: "Define1.jpeg"
+    }
+  };
+
+  const id = new URLSearchParams(window.location.search).get("id");
+  const p = PRODUCTS_DETAIL[id];
+  const container = document.getElementById("productDetail");
+
+  if(p){
+    container.innerHTML = `
+      <div class="product-detail">
+        <img src="${p.image}" alt="${p.name}">
+        <h1>${p.name}</h1>
+        <p class="desc">${p.desc}</p>
+        <p class="price">${p.price} MXN</p>
+        <button class="btn" onclick="addToCart('${id}')">Agregar al carrito</button>
+        <a href="index.html" class="btn ghost">Volver</a>
       </div>
-    </div>
-  `;
-} else {
-  container.innerHTML = `<p>Producto no encontrado.</p>`;
-}
-  <header class="topbar small">
-    <div class="container">
-      <a class="brand" href="./">
-        <img src="logo.jpg" alt="Sveltea logo" class="logo" />
-        <span class="brand-name">Sveltea</span>
-      </a>
-    </div>
-  </header>
-
-  <main class="container">
-    <div id="productDetail"></div>
-  </main>
-
-  <!-- Asegúrate que app.js está en la raíz; si no, cambia la ruta -->
+    `;
+  } else {
+    container.innerHTML = `<p>Producto no encontrado</p>`;
+  }
+  </script>
   <script src="app.js"></script>
-  <!-- product.js contendrá los detalles por producto -->
-  <script src="product.js"></script>
 </body>
 </html>

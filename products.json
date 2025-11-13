@@ -1,3 +1,5 @@
+// product.js — Lista de productos de Sveltea
+
 const PRODUCTS = [
   {
     id: "p01",
@@ -32,16 +34,3 @@ const PRODUCTS = [
     link: "product.html?id=p04"
   }
 ];
-
-const grid = document.getElementById("productsGrid");
-if (grid) {
-  grid.innerHTML = PRODUCTS.map(p => `
-    <div class="product-card">
-      <img src="${p.image}" alt="${p.name}" class="product-img"/>
-      <h3>${p.name}</h3>
-      <p class="muted">${p.short}</p>
-      <p class="price">$${p.price} MXN</p>
-      <button class="btn" onclick="window.location.href='${p.link}'">Ver más detalles</button>
-    </div>
-  `).join("");
-}

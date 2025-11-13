@@ -7,7 +7,82 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body>const PRODUCT_DETAILS = {
+  p01: {
+    name: "Sveltea Esencia",
+    description: `
+      <p><strong>Sveltea Esencia</strong> refresca, revitaliza y nutre la piel con extractos naturales de té verde, rosa mosqueta y colágeno vegetal. Ideal para uso diario, deja una sensación de frescura y luminosidad al instante.</p>
+      <ul>
+        <li>Tonifica y suaviza la piel.</li>
+        <li>Hidratación ligera de rápida absorción.</li>
+        <li>Fragancia delicada y relajante.</li>
+      </ul>
+    `,
+    price: 399,
+    image: "Escencia.jpg"
+  },
+  p02: {
+    name: "Sveltea Renova 30 cápsulas",
+    description: `
+      <p><strong>Sveltea Renova</strong> es un suplemento avanzado diseñado para regenerar y fortalecer desde el interior. Su fórmula combina colágeno hidrolizado, antioxidantes y vitaminas esenciales que promueven una piel más firme, cabello más fuerte y uñas saludables.</p>
+      <ul>
+        <li>Fórmula concentrada con colágeno, vitamina C y biotina.</li>
+        <li>Favorece la elasticidad y luminosidad de la piel.</li>
+        <li>Apoya la regeneración celular y combate los signos del envejecimiento.</li>
+      </ul>
+    `,
+    price: 699,
+    image: "Renova.jpg"
+  },
+  p03: {
+    name: "Sveltea Silueta",
+    description: `
+      <p><strong>Sveltea Silueta</strong> apoya el metabolismo natural y la definición corporal con extractos botánicos y termogénicos suaves. Ideal para complementar una rutina activa y saludable.</p>
+      <ul>
+        <li>Apoyo natural al metabolismo.</li>
+        <li>Favorece el equilibrio y la energía diaria.</li>
+        <li>Sin estimulantes artificiales.</li>
+      </ul>
+    `,
+    price: 549,
+    image: "Silueta.jpg"
+  },
+  p04: {
+    name: "Sveltea Define",
+    description: `
+      <p><strong>Sveltea Define</strong> combina extractos naturales reafirmantes y antioxidantes que ayudan a tonificar la piel y mantener una silueta armoniosa. Perfecto para quienes buscan definición con elegancia.</p>
+      <ul>
+        <li>Promueve firmeza y elasticidad.</li>
+        <li>Hidratación profunda y rápida absorción.</li>
+        <li>Ideal para masaje corporal o uso diario.</li>
+      </ul>
+    `,
+    price: 599,
+    image: "Define.jpg"
+  }
+};
+
+// Mostrar información según ID
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const container = document.getElementById("productDetail");
+
+if (PRODUCT_DETAILS[id]) {
+  const p = PRODUCT_DETAILS[id];
+  container.innerHTML = `
+    <div class="product-detail">
+      <img src="${p.image}" alt="${p.name}" class="product-image" />
+      <div class="product-info">
+        <h2>${p.name}</h2>
+        ${p.description}
+        <p class="price"><strong>$${p.price} MXN</strong></p>
+        <button class="btn" onclick="addToCart('${id}')">Añadir al carrito</button>
+      </div>
+    </div>
+  `;
+} else {
+  container.innerHTML = `<p>Producto no encontrado.</p>`;
+}
   <header class="topbar small">
     <div class="container">
       <a class="brand" href="/">

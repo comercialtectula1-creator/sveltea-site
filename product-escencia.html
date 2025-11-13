@@ -5,106 +5,103 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sveltea Esencia — Sveltea</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Allura&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css" />
   <style>
     body {
-      background-color: #0f0f0f;
-      color: #f4f4f4;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
       font-family: 'Montserrat', sans-serif;
-      position: relative;
-      min-height: 100vh;
       overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
     }
+
+    /* Fondo con logo difuminado */
     body::before {
       content: "";
-      background: url("assets/logo.jpg") no-repeat center center;
-      background-size: 500px;
-      opacity: 0.04;
+      background: url("logo.jpg") no-repeat center center;
+      background-size: 400px;
+      opacity: 0.05;
+      filter: blur(3px);
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
     }
+
     .container {
       position: relative;
       z-index: 1;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 3rem 1rem;
+      padding: 60px 20px;
       text-align: center;
     }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #f7d9e3;
-    }
-    .script {
-      font-family: 'Allura', cursive;
-      font-size: 1.5rem;
-      color: #f5bfcf;
-    }
+
     .product-image {
-      width: 350px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(255, 192, 203, 0.2);
-      margin: 2rem 0;
+      max-width: 350px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
     }
-    .description {
+
+    h1 {
+      font-family: 'Allura', cursive;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #a44a6e;
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    p.description {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: #ddd;
       max-width: 700px;
-      margin: 0 auto 2rem;
+      margin: 0 auto;
+      color: #444;
+      font-weight: 300;
     }
+
     .btn {
-      background: linear-gradient(90deg, #f5bfcf, #f7d9e3);
-      color: #222;
+      background: #a44a6e;
+      color: #fff;
       border: none;
-      border-radius: 25px;
-      padding: 0.8rem 1.5rem;
-      font-weight: 600;
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-size: 1rem;
       cursor: pointer;
-      transition: all 0.3s;
-      margin: 0.5rem;
+      transition: background 0.3s;
+      margin-top: 30px;
     }
+
     .btn:hover {
-      opacity: 0.85;
-      transform: scale(1.03);
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #999;
+      background: #8b3f5f;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <img src="Escencia1.jpeg" alt="Sveltea Esencia" class="product-image" />
     <h1>Sveltea Esencia</h1>
-    <div class="script">Refresca, revitaliza y resalta tu belleza natural.</div>
-
-    <img src="Escencia1.jpeg" alt="Sveltea Esencia" class="product-image">
-
-    <div class="description">
-      <p><strong>Sveltea Esencia</strong> es una fusión delicada de extractos naturales que revitaliza y nutre tu piel desde el primer contacto. 
-      Su textura ligera y su fragancia suave hacen de esta esencia un paso esencial para quienes buscan luminosidad y frescura todos los días.</p>
-      <ul style="text-align:left; display:inline-block; margin-top:1rem;">
-        <li>💧 Hidrata profundamente sin dejar sensación grasa.</li>
-        <li>🌸 Con té verde, colágeno vegetal y rosa mosqueta.</li>
-        <li>✨ Ideal para todo tipo de piel, incluso las sensibles.</li>
-        <li>🕊️ Uso diario — día y noche.</li>
-      </ul>
-    </div>
-
-    <div>
-      <button class="btn" onclick="addToCart('p01')">Añadir al carrito</button>
-      <a href="index.html" class="btn">Volver al inicio</a>
-    </div>
-
-    <footer>© 2025 Sveltea. Elegancia natural en cada gota.</footer>
+    <div class="subtitle">✨ El inicio de la perfección natural</div>
+    <p class="description">
+      Despierta la energía femenina que habita en ti. Purifica, equilibra y prepara tu cuerpo para renacer.  
+      Como la proporción áurea, cada célula encuentra su armonía.  
+      <br><br>
+      Tu transformación comienza desde el interior.
+    </p>
+    <button class="btn" onclick="window.location.href='product.html?id=p01'">Ver más detalles</button>
   </div>
-
-  <script src="js/app.js"></script>
 </body>
 </html>

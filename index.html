@@ -1,90 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SVELTEA — La esencia del poder femenino</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SVELTEA · La esencia del poder femenino</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
 </head>
-<body class="theme-dark">
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="./">
-        <img src="logo.jpg" alt="SVELTEA logo" class="logo">
-        <div class="brand-text">
-          <div class="brand-name">SVELTEA</div>
-          <div class="brand-slogan">La esencia del poder femenino</div>
-        </div>
-      </a>
-      <nav class="nav">
-        <a href="#productos">Productos</a>
-        <a href="#about">Nosotros</a>
-        <a href="#contact">Contacto</a>
-        <button id="cartBtn" class="cart-btn">Carrito (<span id="cart-count">0</span>)</button>
-      </nav>
-    </div>
+<body>
+  <header class="header">
+    <img src="logo.jpg" alt="SVELTEA Logo" class="logo" />
+    <nav>
+      <a href="#productos">Nuestros Productos</a>
+      <a href="#urea">Línea Áurea</a>
+    </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-inner container">
-      <div class="hero-copy">
-        <h1>SVELTEA</h1>
-        <p class="lead">La esencia del poder femenino</p>
-        <p class="muted">SVELTEA representa la unión entre ciencia, belleza y energía femenina — fórmulas pensadas para realzar la proporción áurea en ti.</p>
-        <a href="#productos" class="btn primary">Descubre la línea Áurea</a>
-      </div>
-      <div class="hero-media">
-        <img src="Urea.jpeg" alt="Línea Áurea" class="hero-image">
-      </div>
-    </div>
+    <h1>SVELTEA</h1>
+    <p>La esencia del poder femenino.</p>
   </section>
 
-  <main class="container">
-    <section id="productos" class="section">
-      <h2 class="section-title">Nuestra línea Áurea</h2>
-      <p class="section-sub">En el universo, existe una medida perfecta… SVELTEA · LÍNEA ÁUREA: despierta la proporción dorada en ti.</p>
-      <div id="productsGrid" class="products-grid"></div>
-    </section>
+  <section id="productos" class="productos">
+    <h2>Nuestros Productos</h2>
+    <div id="productsGrid" class="grid"></div>
+  </section>
 
-    <section id="about" class="section">
-      <h2 class="section-title">Sobre SVELTEA</h2>
-      <p class="muted">SVELTEA representa la unión entre ciencia, belleza y energía femenina. Una marca nacida para realzar la esencia de cada mujer, alineando cuerpo, mente y espíritu con la proporción áurea. Cada fórmula busca despertar la confianza interior y reflejarla en la silueta.</p>
-    </section>
+  <section id="urea" class="urea">
+    <h2>Línea Áurea</h2>
+    <p>En el universo, existe una medida perfecta…<br>
+    <strong>SVELTEA · LÍNEA ÁUREA:</strong> que despierta la proporción dorada en ti.</p>
+    <img src="Urea.jpeg" alt="Línea Áurea" class="urea-img">
+  </section>
 
-    <section id="contact" class="section">
-      <h2 class="section-title">Contacto</h2>
-      <form id="contactForm" class="contact-form">
-        <label>Nombre<input name="name" type="text" required></label>
-        <label>Email<input name="email" type="email" required></label>
-        <label>Mensaje<textarea name="message" rows="4" required></textarea></label>
-        <div style="display:flex;gap:12px;margin-top:12px">
-          <button type="submit" class="btn primary">Enviar</button>
-          <button type="reset" class="btn ghost">Limpiar</button>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <div id="cartModal" class="cart-modal hidden">
-    <div class="cart-wrap">
-      <button id="closeCart" class="close">✕</button>
-      <h3>Tu carrito</h3>
-      <div id="cartItems" class="cart-items"></div>
-      <div class="cart-footer">
-        <div>Total: <strong id="cartTotal">0.00</strong> MXN</div>
-        <div style="margin-top:12px"><a id="checkoutBtn" href="checkout.html" class="btn primary">Ir a pagar</a></div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="container">
-      <small>© 2025 SVELTEA. Todos los derechos reservados.</small>
-    </div>
+  <footer>
+    <p>© 2025 SVELTEA · La esencia del poder femenino</p>
   </footer>
-
-  <script src="product.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>

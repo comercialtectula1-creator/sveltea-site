@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto – SVELTEA</title>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #ffe7f6;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 120px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    h1 {
+      color: #ffb7df;
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #ffddea;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    textarea {
+      height: 140px;
+      resize: none;
+    }
+
+    .sexo-container {
+      text-align: left;
+      margin-top: 8px;
+    }
+
+    .sexo-container input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background: #ffb7df;
+      color: #000;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffd5ec;
+      transform: scale(1.04);
+    }
+
+    a {
+      color: #ffd7f2;
+      display: block;
+      margin-top: 25px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Formulario de Contacto</h1>
+
+    <form action="https://formsubmit.co/Hi.Sveltea@gmail.com" method="POST">
+
+      <!-- Evitar spam -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="box">
+
+      <label>Mensaje:</label>
+      <textarea name="mensaje" required></textarea>
+
+      <label>Sexo:</label>
+      <div class="sexo-container">
+        <label><input type="radio" name="sexo" value="Hombre" required> Hombre</label><br>
+        <label><input type="radio" name="sexo" value="Mujer"> Mujer</label>
+      </div>
+
+      <label>Edad:</label>
+      <input type="number" name="edad" min="1" max="100" required>
+
+      <label>Teléfono de contacto:</label>
+      <input type="text" name="telefono" placeholder="Ejemplo: 5530123456" required>
+
+      <label>Correo Electrónico:</label>
+      <input type="email" name="correo" required>
+
+      <button type="submit">Enviar</button>
+
+    </form>
+
+    <a href="index.html">← Volver al inicio</a>
+
+  </div>
+
+</body>
+</html>

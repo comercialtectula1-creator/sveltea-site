@@ -209,6 +209,38 @@
       margin-top: 20px;
       opacity: 0.9;
     }
+    /* ——— CARRITO ——— */
+#cart-panel {
+  position: fixed;
+  top: 0;
+  left: -350px;
+  width: 300px;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.97);
+  border-right: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+  padding: 20px;
+  z-index: 9999;
+}
+
+#cart-panel.open {
+  left: 0;
+}
+
+#cart-items {
+  margin-top: 20px;
+  text-align: left;
+  color: #ffd7f2;
+  font-size: 1rem;
+}
+
+.cart-total {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffb7df;
+}
   </style>
 </head>
 
@@ -218,6 +250,7 @@
   <header>
     <img src="logo.jpeg" class="logo-img" alt="SVELTEA Logo">
     <nav>
+      <a href="#" id="cart-btn">🛒 Carrito</a>
       <a href="index.html">Inicio</a>
       <a href="linea-aurea.html">Línea Áurea</a>
      <a href="contacto.html">Contacto</a>
@@ -295,6 +328,47 @@
   <footer>
     © 2025 SVELTEA · Todos los derechos reservados
   </footer>
+<!-- ——— PANEL CARRITO ——— -->
+<div id="cart-panel">
+  <h2>Carrito</h2>
+  <div id="cart-items"></div>
+  <div class="cart-total">Total: $<span id="cart-total">0</span></div>
+</div>
+    <script>
+  let cart = [];
 
+  // Abrir carrito
+  document.getElementById("cart-btn").addEventListener("click", () => {
+    document.getElementById("cart-panel").classList.toggle("open");
+  });
+
+  // Agregar productos
+  const addButtons = document.querySelectorAll(".product-card .btn:nth-child(3)");
+
+  addButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const names = ["Esencia", "Renova", "Silueta", "Define"];
+      const prices = [450, 480, 510, 520];
+
+      cart.push({ name: names[index], price: prices[index] });
+      renderCart();
+    });
+  });
+
+  function renderCart() {
+    const container = document.getElementById("cart-items");
+    const totalSpan = document.getElementById("cart-total");
+
+    container.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+      container.innerHTML += `<p>${item.name} — $${item.price}</p>`;
+      total += item.price;
+    });
+
+    totalSpan.textContent = total;
+  }
+</script>
 </body>
 </html>

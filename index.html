@@ -294,29 +294,33 @@
       <div class="product-card">
         <img src="Escencia1.jpeg">
         <div class="product-name">SVELTEA ESENCIA</div>
+        <div class="product-price">$1,000 MXN</div>
        <a href="product-escencia.html"><button class="btn">Ver</button></a>
-        <button class="btn" onclick="addToCart('Esencia', 450)">Agregar al carrito</button>
+        <button class="btn" onclick="addToCart('Esencia', 1000)">Agregar al carrito</button>
       </div>
 
       <div class="product-card">
         <img src="Renova1.jpeg">
         <div class="product-name">SVELTEA RENOVA</div>
+        <div class="product-price">$1,200 MXN</div>
        <a href="product-renova.html"><button class="btn">Ver</button></a>
-        <button class="btn" onclick="addToCart('Renova', 480)">Agregar al carrito</button>
+        <button class="btn" onclick="addToCart('Renova', 1200)">Agregar al carrito</button>
       </div>
 
       <div class="product-card">
         <img src="Silueta1.jpeg">
         <div class="product-name">SVELTEA SILUETA</div>
+        <div class="product-price">$1,400 MXN</div>
         <a href="product-silueta.html"><button class="btn">Ver</button></a>
-       <button class="btn" onclick="addToCart('Silueta', 510)">Agregar al carrito</button>
+       <button class="btn" onclick="addToCart('Silueta', 1400)">Agregar al carrito</button>
       </div>
 
       <div class="product-card">
         <img src="Define1.jpeg">
         <div class="product-name">SVELTEA DEFINE</div>
+        <div class="product-price">$1,000 MXN</div>
         <a href="product-define.html"><button class="btn">Ver</button></a>
-        <button class="btn" onclick="addToCart('Define', 520)">Agregar al carrito</button>
+        <button class="btn" onclick="addToCart('Define', 1000)">Agregar al carrito</button>
       </div>
     </div>
 
@@ -348,7 +352,7 @@
   addButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
       const names = ["Esencia", "Renova", "Silueta", "Define"];
-      const prices = [450, 480, 510, 520];
+      const prices = [1000, 1200, 1400, 1000];
 
       cart.push({ name: names[index], price: prices[index] });
       renderCart();

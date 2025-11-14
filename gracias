@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias – SVELTEA</title>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #ffe7f6;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 150px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 22px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .logo {
+      width: 95px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 8px rgba(255, 160, 220, 0.5));
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: #ffb7df;
+      font-weight: 300;
+      margin-bottom: 20px;
+      text-shadow: 0 0 16px rgba(255, 160, 220, 0.45);
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #ffddea;
+      opacity: 0.95;
+      margin-bottom: 35px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #ffb7df;
+      color: #000;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background: #ffd5ec;
+      transform: scale(1.07);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <img src="logo.png" alt="SVELTEA" class="logo">
+
+    <h1>¡Gracias por contactarnos!</h1>
+
+    <p>
+      Hemos recibido tu mensaje correctamente.  
+      Nuestro equipo de SVELTEA te responderá a la brevedad con la atención y el detalle que mereces.
+      <br><br>
+      ✨ Gracias por confiar en la esencia del poder femenino ✨
+    </p>
+
+    <a href="index.html">Volver al inicio</a>
+
+  </div>
+
+</body>
+</html>

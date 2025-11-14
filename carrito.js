@@ -1,46 +1,34 @@
-// =====================================================
-// CARRITO GLOBAL SVELTEA
-// =====================================================
+// CARGAR CARRITO O CREAR UNO NUEVO
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Si ya existe carrito guardado, lo cargamos
-let cart = JSON.parse(localStorage.getItem("cart_sveltea")) || [];
-
-// Abrir panel carrito
-document.addEventListener("DOMContentLoaded", () => {
-  const cartBtn = document.getElementById("cart-btn");
-  const cartPanel = document.getElementById("cart-panel");
-
-  if (cartBtn) {
-    cartBtn.addEventListener("click", () => {
-      cartPanel.classList.toggle("open");
-      renderCart();
-    });
-  }
-
-  renderCart();
-});
-
-// Agregar producto
-function addToCart(name, price) {
-  cart.push({ name, price });
-  localStorage.setItem("cart_sveltea", JSON.stringify(cart));
-  renderCart();
+// ACTUALIZAR CONTADOR EN EL HEADER
+function updateCartCount() {
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cart-count").textContent = totalItems;
 }
 
-// Mostrar carrito
-function renderCart() {
-  const container = document.getElementById("cart-items");
-  const totalSpan = document.getElementById("cart-total");
+updateCartCount(); // Cargar al iniciar
 
-  if (!container) return;
+// BOTONES DE AGREGAR AL CARRITO
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", () => {
+    const name = button.dataset.name;
+    const price = Number(button.dataset.price);
 
-  container.innerHTML = "";
-  let total = 0;
+    const existing = cart.find(item => item.name === name);
 
-  cart.forEach(item => {
-    container.innerHTML += `<p>${item.name} — $${item.price}</p>`;
-    total += item.price;
+    if (existing) {
+      existing.quantity++;
+    } else {
+      cart.push({
+        name,
+        price,
+        quantity: 1
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
   });
-
-  if (totalSpan) totalSpan.textContent = total;
-}
+});

@@ -389,7 +389,25 @@
 </div>
 
 <script src="carrito.js"></script>
+    <script>
+function actualizarContadorCarrito() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    document.getElementById("cart-counter").textContent = carrito.length;
+}
 
-<script src="carrito.js"></script>
+// Mantener actualizado al cargar página
+actualizarContadorCarrito();
+</script>
+<button onclick="vaciarCarrito()" style="position:fixed; bottom:20px; right:20px; padding:10px 20px; background:#c94f7c; color:white; border:none; border-radius:10px; cursor:pointer; z-index:999;">
+  Vaciar Carrito (debug)
+</button>
+
+<script>
+function vaciarCarrito() {
+    localStorage.removeItem("carrito");
+    actualizarContadorCarrito();
+    alert("🛒 Carrito reiniciado");
+}
+</script>
 </body>
 </html>

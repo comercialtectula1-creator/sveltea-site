@@ -13,7 +13,8 @@
     .product-container{ max-width:600px; margin:auto; padding:20px;}
     .product-container img{ width:65%; border-radius:20px; box-shadow:0 0 25px rgba(255,180,225,0.15); margin-bottom:20px;}
     .product-title{ font-size:2rem; color:#ffb7df;}
-    .product-price{ font-size:1.3rem; font-weight:bold; margin-bottom:20px;}
+    .product-price{ font-size:1.3rem; font-weight:bold; margin-bottom:25px;}
+    .description{ background:#111; padding:20px; border-radius:15px; margin-bottom:20px; line-height:1.6; color:#ffd7f2; }
     .btn{ padding:12px 25px; background:#ffb7df; color:black; border-radius:12px; border:none; cursor:pointer; margin:10px;}
     .btn:hover{ background:#ffd0ea; transform:scale(1.05);}
   </style>
@@ -27,6 +28,7 @@
     <a href="index.html">Inicio</a>
     <a href="linea-aurea.html">Línea Áurea</a>
     <a href="contacto.html">Contacto</a>
+    <a id="cart-count" style="margin-left:20px;">0</a>
   </nav>
 </header>
 
@@ -35,6 +37,10 @@
 
   <h1 class="product-title">SVELTEA SILUETA</h1>
   <p class="product-price">$1,400 MXN</p>
+
+  <div class="description">
+    Fórmula diseñada para moldear la figura, reducir medidas y mejorar la sensación de ligereza corporal.
+  </div>
 
   <button class="btn" onclick="addToCart('SVELTEA SILUETA', 1400)">Agregar al carrito</button>
   <button class="btn" onclick="history.back()">Volver</button>

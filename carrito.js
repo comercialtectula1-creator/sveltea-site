@@ -50,9 +50,7 @@ function renderCartPanel() {
 
   cart.forEach(item => {
     container.innerHTML += `
-      <p>
-        ${item.name} — $${item.price} x ${item.quantity}
-      </p>
+      <p>${item.name} — $${item.price} x ${item.quantity}</p>
     `;
     total += item.price * item.quantity;
   });
@@ -76,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   renderCartPanel();
 
-  // Botón abrir/cerrar panel
   const btn = document.getElementById("cart-btn");
   if (btn) {
     btn.addEventListener("click", () => {

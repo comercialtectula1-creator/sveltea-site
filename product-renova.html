@@ -1,26 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>SVELTEA Renova</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css"></head>
-<body class="theme-dark">
-  <div class="product-hero">
-    <div class="product-hero-inner container">
-      <div class="product-media"><img src="Renova1.jpeg" alt="Sveltea Renova"></div>
-      <div class="product-info">
-        <h1>SVELTEA Renova</h1>
-        <p class="subtitle">👑 Renueva, Fluye, Evoluciona</p>
-        <p class="muted">Tu cuerpo se alinea con la belleza universal. Libérate de lo que no necesitas y deja surgir tu poder. En ti, las curvas y la energía se equilibran como en la geometría divina.</p>
-        <div class="product-price">1200 MXN</div>
-        <div style="margin-top:18px">
-          <button class="btn" onclick="addToCart('Renova', 1200)">Agregar al carrito</button>
-          <a href="index.html">
-  <button class="btn">Volver</button>
-</a>
-        </div>
-      </div>
-    </div>
-  </div>
-<script src="product.js"></script><script src="app.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVELTEA RENOVA</title>
+
+  <style>
+    body { margin:0; font-family:"Poppins",sans-serif; background:#0a0a0a; color:#ffe7f6; text-align:center; padding-top:120px;}
+    header{ width:100%; padding:12px 30px; display:flex; align-items:center; justify-content:space-between; position:fixed; top:0; left:0; backdrop-filter:blur(12px); background:rgba(0,0,0,0.4); border-bottom:1px solid rgba(255,255,255,0.15);}
+    .logo-img{ height:55px; }
+    nav a{ color:#ffd7f2; margin-left:20px; text-decoration:none; }
+    .product-container{ max-width:600px; margin:auto; padding:20px; }
+    .product-container img{ width:65%; border-radius:20px; box-shadow:0 0 25px rgba(255,180,225,0.15); margin-bottom:20px;}
+    .product-title{ font-size:2rem; color:#ffb7df; }
+    .product-price{ font-size:1.3rem; font-weight:bold; margin-bottom:20px; }
+    .btn{ padding:12px 25px; background:#ffb7df; color:black; border-radius:12px; border:none; margin:10px; cursor:pointer;}
+    .btn:hover{ background:#ffd0ea; transform:scale(1.05);}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.jpeg" class="logo-img">
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="linea-aurea.html">Línea Áurea</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<div class="product-container">
+  <img src="Renova.jpeg">
+
+  <h1 class="product-title">SVELTEA RENOVA</h1>
+  <p class="product-price">$1,200 MXN</p>
+
+  <button class="btn" onclick="addToCart('SVELTEA RENOVA', 1200)">Agregar al carrito</button>
+  <button class="btn" onclick="history.back()">Volver</button>
+</div>
+
 <script src="carrito.js"></script>
-</body></html>
+</body>
+</html>

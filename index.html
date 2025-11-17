@@ -49,6 +49,25 @@
       text-shadow: 0 0 12px rgba(255, 200, 240, 0.45);
     }
 
+    /* ----------- CARRITO EN HEADER ---------- */
+    #cart-btn {
+      background: none;
+      border: none;
+      color: #ffd7f2;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    #cart-count {
+      background: #ffb7df;
+      color: black;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      margin-left: 6px;
+    }
+
     .container {
       padding-top: 130px;
       max-width: 900px;
@@ -181,6 +200,13 @@
       color: #ffe2f4;
     }
 
+    .product-price {
+      margin-top: 5px;
+      font-size: 1.1rem;
+      color: #ffb7df;
+      font-weight: bold;
+    }
+
     .btn {
       display: block;
       margin: 10px auto;
@@ -193,76 +219,72 @@
       cursor: pointer;
     }
 
+    /* ——— PANEL DEL CARRITO ——— */
+    #cart-panel {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 300px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      transition: 0.3s;
+      z-index: 2000;
+      text-align: left;
+    }
+
+    #cart-panel.open {
+      right: 0;
+    }
+
+    #cart-items p {
+      font-size: 1rem;
+      color: #ffd8f0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+    }
+
     /* ——— MÉTODOS DE PAGO ——— */
-    .pagos {
+    .payments {
       margin-top: 90px;
       padding-bottom: 40px;
     }
 
-    .pagos-title {
-      font-size: 1.9rem;
-      color: #ffb7df;
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      color: #ffd7f2;
+      opacity: 0.7;
+      font-size: 0.9rem;
     }
-
-    .pagos img {
-      width: 280px;
-      margin-top: 20px;
-      opacity: 0.9;
-    }
-    /* ——— CARRITO ——— */
-#cart-panel {
-  position: fixed;
-  top: 0;
-  left: -350px;
-  width: 300px;
-  height: 100%;
-  background: rgba(20, 20, 20, 0.97);
-  border-right: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  transition: 0.4s;
-  padding: 20px;
-  z-index: 9999;
-}
-
-#cart-panel.open {
-  left: 0;
-}
-
-#cart-items {
-  margin-top: 20px;
-  text-align: left;
-  color: #ffd7f2;
-  font-size: 1rem;
-}
-
-.cart-total {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ffb7df;
-}
-    .cart-counter {
-  background: #c9a96a;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-left: 10px;
-  font-size: 14px;
-}
   </style>
 </head>
 
 <body>
 
+  <!-- ——— PANEL DEL CARRITO (UNO SOLO Y FUNCIONAL) ——— -->
+  <div id="cart-panel">
+    <h2>🛒 Tu Carrito</h2>
+    <div id="cart-items"></div>
+    <p><strong>Total: $<span id="cart-total">0</span></strong></p>
+    <button onclick="vaciarCarrito()" class="btn" style="margin-top:20px;">Vaciar Carrito</button>
+  </div>
+
   <!-- ——— HEADER ——— -->
   <header>
     <img src="logo.jpeg" class="logo-img" alt="SVELTEA Logo">
+
+    <!-- CARRITO HEADER -->
+    <button id="cart-btn">
+      Carrito <span id="cart-count">0</span>
+    </button>
+
     <nav>
-      <div id="cart-count" class="cart-counter">0</div>
-      <a href="#" id="cart-btn">🛒 Carrito</a>
       <a href="index.html">Inicio</a>
       <a href="linea-aurea.html">Línea Áurea</a>
-     <a href="contacto.html">Contacto</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
   </header>
 
@@ -301,113 +323,50 @@
 
     <div class="products-grid">
       <div class="product-card">
-        <img src="Escencia1.jpeg">
+        <img src="Escencia.jpeg">
         <div class="product-name">SVELTEA ESENCIA</div>
         <div class="product-price">$1,000 MXN</div>
-       <a href="product-escencia.html"><button class="btn">Ver</button></a>
-        <button class="btn" onclick="addToCart('Esencia', 1000)">Agregar al carrito</button>
+        <a href="product-escencia.html"><button class="btn">Ver</button></a>
+        <button class="btn" onclick="addToCart('SVELTEA ESENCIA', 1000)">Agregar al carrito</button>
       </div>
 
       <div class="product-card">
-        <img src="Renova1.jpeg">
+        <img src="Renova.jpeg">
         <div class="product-name">SVELTEA RENOVA</div>
         <div class="product-price">$1,200 MXN</div>
-       <a href="product-renova.html"><button class="btn">Ver</button></a>
-        <button class="btn" onclick="addToCart('Renova', 1200)">Agregar al carrito</button>
+        <a href="product-renova.html"><button class="btn">Ver</button></a>
+        <button class="btn" onclick="addToCart('SVELTEA RENOVA', 1200)">Agregar al carrito</button>
       </div>
 
       <div class="product-card">
-        <img src="Silueta1.jpeg">
+        <img src="Silueta.jpeg">
         <div class="product-name">SVELTEA SILUETA</div>
         <div class="product-price">$1,400 MXN</div>
         <a href="product-silueta.html"><button class="btn">Ver</button></a>
-       <button class="btn" onclick="addToCart('Silueta', 1400)">Agregar al carrito</button>
+        <button class="btn" onclick="addToCart('SVELTEA SILUETA', 1400)">Agregar al carrito</button>
       </div>
 
       <div class="product-card">
-        <img src="Define1.jpeg">
+        <img src="Define.jpeg">
         <div class="product-name">SVELTEA DEFINE</div>
         <div class="product-price">$1,000 MXN</div>
         <a href="product-define.html"><button class="btn">Ver</button></a>
-        <button class="btn" onclick="addToCart('Define', 1000)">Agregar al carrito</button>
+        <button class="btn" onclick="addToCart('SVELTEA DEFINE', 1000)">Agregar al carrito</button>
       </div>
     </div>
 
     <div class="payments">
-    Aceptamos: VISA · MASTERCARD · AMEX · PayPal · Transferencia SPEI
+      Aceptamos: VISA · MASTERCARD · AMEX · PayPal · Transferencia SPEI
+    </div>
+
+    <footer>
+      © 2025 SVELTEA · Todos los derechos reservados
+    </footer>
+
   </div>
 
-  <!-- ——— FOOTER ——— -->
-  <footer>
-    © 2025 SVELTEA · Todos los derechos reservados
-  </footer>
-<!-- ——— PANEL CARRITO ——— -->
-<div id="cart-panel">
-  <h2>Carrito</h2>
-  <div id="cart-items"></div>
-  <div class="cart-total">Total: $<span id="cart-total">0</span></div>
-</div>
-    <script>
-  let cart = [];
+  <!-- SCRIPT DEL CARRITO -->
+  <script src="carrito.js"></script>
 
-  // Abrir carrito
-  document.getElementById("cart-btn").addEventListener("click", () => {
-    document.getElementById("cart-panel").classList.toggle("open");
-  });
-
-  // Agregar productos
-  const addButtons = document.querySelectorAll(".product-card .btn:nth-child(3)");
-
-  addButtons.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      const names = ["Esencia", "Renova", "Silueta", "Define"];
-      const prices = [1000, 1200, 1400, 1000];
-
-      cart.push({ name: names[index], price: prices[index] });
-      renderCart();
-    });
-  });
-
-  function renderCart() {
-    const container = document.getElementById("cart-items");
-    const totalSpan = document.getElementById("cart-total");
-
-    container.innerHTML = "";
-    let total = 0;
-
-    cart.forEach(item => {
-      container.innerHTML += `<p>${item.name} — $${item.price}</p>`;
-      total += item.price;
-    });
-
-    totalSpan.textContent = total;
-  }
-      <div id="cart-panel">
-  <h2>Carrito</h2>
-  <div id="cart-items"></div>
-  <div class="cart-total">Total: $<span id="cart-total">0</span></div>
-</div>
-
-<script src="carrito.js"></script>
-    <script>
-function actualizarContadorCarrito() {
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    document.getElementById("cart-counter").textContent = carrito.length;
-}
-
-// Mantener actualizado al cargar página
-actualizarContadorCarrito();
-</script>
-<button onclick="vaciarCarrito()" style="position:fixed; bottom:20px; right:20px; padding:10px 20px; background:#c94f7c; color:white; border:none; border-radius:10px; cursor:pointer; z-index:999;">
-  Vaciar Carrito (debug)
-</button>
-
-<script>
-function vaciarCarrito() {
-    localStorage.removeItem("carrito");
-    actualizarContadorCarrito();
-    alert("🛒 Carrito reiniciado");
-}
-</script>
 </body>
 </html>
